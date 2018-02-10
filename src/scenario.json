@@ -21,6 +21,11 @@
 				"label": "LND",
 				"value": "RET",
 				"on": false
+			},
+			{
+				"type": "percentage",
+				"label": "LH",
+				"value": 1
 			}
 		]
 	},
@@ -46,6 +51,11 @@
 				"label": "LND",
 				"value": "DEP",
 				"on": true
+			},
+			{
+				"type": "percentage",
+				"label": "LH",
+				"value": 0.2
 			}
 		]
 	},
@@ -71,6 +81,11 @@
 				"label": "LND",
 				"value": "DEP",
 				"on": true
+			},
+			{
+				"type": "percentage",
+				"label": "LH",
+				"value": 0.4
 			}
 		]
 	}

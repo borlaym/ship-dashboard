@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import NumericValue from './NumericValue';
 import TextValue from './TextValue';
+import PercentageValue from './PercentageValue';
 import registerServiceWorker from './registerServiceWorker';
 import scenario from './scenario.json';
 import config from './config.json';
@@ -44,6 +45,11 @@ const tick = () => {
 			}
 			case 'text': {
 				return <TextValue label={label} value={previousPhase.values[index].value} on={on} />
+			}
+			case 'percentage': {
+				const previousPhaseValue = previousPhase.values[index].value;
+				const newValue = previousPhaseValue + (timeInCurrentDuration / phaseDuration) * (value - previousPhaseValue);
+				return <PercentageValue label={label} value={newValue} />
 			}
 		}
 		
