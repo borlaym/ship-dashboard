@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 export default function PercentageValue(props) {
-	const { label, value, precision } = props;
+	const { label, value } = props;
 	const valueToDisplay = Number.parseFloat(value * 100).toPrecision(4);
 	return <div className={`PercentageValue ${label}`}>
 		<div className="PercentageValue__label">

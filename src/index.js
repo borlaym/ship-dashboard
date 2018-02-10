@@ -41,15 +41,15 @@ const tick = () => {
 			case 'numeric': {
 				const previousPhaseValue = previousPhase.values[index].value;
 				const newValue = previousPhaseValue + (timeInCurrentDuration / phaseDuration) * (value - previousPhaseValue);
-				return <NumericValue label={label} value={newValue} metric={metric} precision={precision} />
+				return <NumericValue key={label} label={label} value={newValue} metric={metric} precision={precision} />
 			}
 			case 'text': {
-				return <TextValue label={label} value={previousPhase.values[index].value} on={on} />
+				return <TextValue key={label} label={label} value={previousPhase.values[index].value} on={on} />
 			}
 			case 'percentage': {
 				const previousPhaseValue = previousPhase.values[index].value;
 				const newValue = previousPhaseValue + (timeInCurrentDuration / phaseDuration) * (value - previousPhaseValue);
-				return <PercentageValue label={label} value={newValue} />
+				return <PercentageValue key={label} label={label} value={newValue} />
 			}
 		}
 		
