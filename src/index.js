@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import NumericValue from './NumericValue';
 import registerServiceWorker from './registerServiceWorker';
 import scenario from './scenario.json';
 import config from './config.json';
+import './App.css';
 
 let t = 0;
 let lastModified = Date.now();
@@ -55,7 +55,7 @@ const tick = () => {
 };
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<div />, document.getElementById('root'));
 registerServiceWorker();
 
 tick();
