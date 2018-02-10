@@ -40,13 +40,7 @@ const tick = () => {
 			case 'numeric': {
 				const previousPhaseValue = previousPhase.values[index].value;
 				const newValue = previousPhaseValue + (timeInCurrentDuration / phaseDuration) * (value - previousPhaseValue);
-				let valueToDisplay;
-				if (!precision || precision === 0) {
-					valueToDisplay = Math.floor(newValue);
-				} else {
-					valueToDisplay = Number.parseFloat(newValue).toPrecision(precision || 1);
-				}
-				return <NumericValue label={label} value={valueToDisplay} metric={metric}/>
+				return <NumericValue label={label} value={newValue} metric={metric} precision={precision} />
 			}
 			case 'text': {
 				return <TextValue label={label} value={previousPhase.values[index].value} on={on} />
