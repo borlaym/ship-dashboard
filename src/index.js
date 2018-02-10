@@ -12,10 +12,23 @@ import './App.css';
 let t = 0;
 let lastModified = Date.now();
 let phaseIndex = 1;
-let pause = false;
+let pause = true;
+
+const changePause = () => {
+	pause = !pause;
+	if (!pause) {
+		lastModified = Date.now();
+		tick();
+	}
+}
 
 const tick = () => {
 	if (pause) {
+		ReactDOM.render(
+			<div className="app">
+				<button onClick={changePause}>Play</button>
+			</div>
+			, document.getElementById('root'));
 		return;
 	}
 	const now = Date.now();
@@ -58,6 +71,7 @@ const tick = () => {
 	ReactDOM.render(
 		<div className="app">
 			{values}
+			<button onClick={changePause}>{pause ? 'Play' : 'Pause'}</button>
 		</div>
 	, document.getElementById('root'));
 	window.setTimeout(tick, config.refreshInterval);
