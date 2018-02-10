@@ -5,7 +5,16 @@
 			{
 				"type": "numeric",
 				"label": "ALT",
-				"value": 0
+				"value": 0,
+				"metric": "M",
+				"precision": 0
+			},
+			{
+				"type": "numeric",
+				"label": "SPD",
+				"value": 0,
+				"metric": "MACH",
+				"precision": 2
 			},
 			{
 				"type": "text",
@@ -21,7 +30,16 @@
 			{
 				"type": "numeric",
 				"label": "ALT",
-				"value": 1000
+				"value": 1000,
+				"metric": "M",
+				"precision": 0
+			},
+			{
+				"type": "numeric",
+				"label": "SPD",
+				"value": 1.5,
+				"metric": "MACH",
+				"precision": 2
 			},
 			{
 				"type": "text",
@@ -37,7 +55,16 @@
 			{
 				"type": "numeric",
 				"label": "ALT",
-				"value": 0
+				"value": 0,
+				"metric": "M",
+				"precision": 0
+			},
+			{
+				"type": "numeric",
+				"label": "SPD",
+				"value": 0.5,
+				"metric": "MACH",
+				"precision": 2
 			},
 			{
 				"type": "text",

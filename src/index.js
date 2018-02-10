@@ -35,12 +35,18 @@ const tick = () => {
 	const phaseDuration = currentPhase.timestamp - previousPhase.timestamp;
 	const timeInCurrentDuration = t - previousPhase.timestamp;
 
-	const values = currentPhase.values.map(({ label, value, type, on }, index) => {
+	const values = currentPhase.values.map(({ label, value, type, on, metric, precision }, index) => {
 		switch(type) {
 			case 'numeric': {
 				const previousPhaseValue = previousPhase.values[index].value;
-				const valueToDisplay = previousPhaseValue + (timeInCurrentDuration / phaseDuration) * (value - previousPhaseValue);
-				return <NumericValue label={label} value={Math.floor(valueToDisplay)} />
+				const newValue = previousPhaseValue + (timeInCurrentDuration / phaseDuration) * (value - previousPhaseValue);
+				let valueToDisplay;
+				if (!precision || precision === 0) {
+					valueToDisplay = Math.floor(newValue);
+				} else {
+					valueToDisplay = Number.parseFloat(newValue).toPrecision(precision || 1);
+				}
+				return <NumericValue label={label} value={valueToDisplay} metric={metric}/>
 			}
 			case 'text': {
 				return <TextValue label={label} value={previousPhase.values[index].value} on={on} />
