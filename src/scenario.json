@@ -6,6 +6,12 @@
 				"type": "numeric",
 				"label": "ALT",
 				"value": 0
+			},
+			{
+				"type": "text",
+				"label": "LND",
+				"value": "RET",
+				"on": false
 			}
 		]
 	},
@@ -16,6 +22,12 @@
 				"type": "numeric",
 				"label": "ALT",
 				"value": 1000
+			},
+			{
+				"type": "text",
+				"label": "LND",
+				"value": "DEP",
+				"on": true
 			}
 		]
 	},
@@ -26,6 +38,12 @@
 				"type": "numeric",
 				"label": "ALT",
 				"value": 0
+			},
+			{
+				"type": "text",
+				"label": "LND",
+				"value": "DEP",
+				"on": true
 			}
 		]
 	}

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import NumericValue from './NumericValue';
+import TextValue from './TextValue';
 import registerServiceWorker from './registerServiceWorker';
 import scenario from './scenario.json';
 import config from './config.json';
@@ -34,12 +35,15 @@ const tick = () => {
 	const phaseDuration = currentPhase.timestamp - previousPhase.timestamp;
 	const timeInCurrentDuration = t - previousPhase.timestamp;
 
-	const values = currentPhase.values.map(({ label, value, type }, index) => {
+	const values = currentPhase.values.map(({ label, value, type, on }, index) => {
 		switch(type) {
 			case 'numeric': {
 				const previousPhaseValue = previousPhase.values[index].value;
 				const valueToDisplay = previousPhaseValue + (timeInCurrentDuration / phaseDuration) * (value - previousPhaseValue);
 				return <NumericValue label={label} value={Math.floor(valueToDisplay)} />
+			}
+			case 'text': {
+				return <TextValue label={label} value={previousPhase.values[index].value} on={on} />
 			}
 		}
 		
