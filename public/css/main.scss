@@ -1,0 +1,164 @@
+$color-green:   #5cd03d;
+$color-red:     #d84e4e;
+$color-yellow:  #eab000;
+
+$break-1:   400px;
+$break-2:   700px;
+$break-3:   1000px;
+$break-4:   1300px;
+$break-5:   1600px;
+$break-6:   1900px;
+
+// GENERAL
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    height: 100%;
+    line-height: 1.3;
+    margin: 0;
+}
+
+%button {
+    color: #000;
+    background-color: $color-yellow;
+}
+
+// BIG SCREEN
+
+.bigscreen-layout {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    width: 100%;
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 0 1 35%;
+        margin: 2rem;
+
+        &:last-child {
+            text-align: right;
+        }
+    }
+}
+
+.data-group {
+
+    &--twocol {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.data {
+    font-size: 1.5rem;
+
+    &--large {
+        font-size: 3rem;
+
+        & .data__value {
+            margin-bottom: 0;
+        }
+    }
+
+    &__label {
+        color: $color-yellow;
+        font-size: 1em;
+        font-weight: bold;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    &__value {
+        font-family: 'Source Code Pro', sans-serif;
+        font-size: 1.5em;
+        margin: 0 0 2rem;
+    }
+
+    &--twocol {
+        flex: 1 1 50%;
+    }
+}
+
+// TASKS SCREEN
+
+.tasks-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.tasks-header {
+    border-bottom: 1px solid #fff;
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: space-between;
+    padding: 1rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &__role {
+        text-transform: uppercase;
+    }
+
+    &__score {
+        text-transform: uppercase;
+    }
+}
+
+.task {
+    flex: 1 1 auto;
+    padding: 1rem;
+    overflow: auto;
+
+    &__label {
+        color: $color-green;
+        margin-top: 1rem;
+        text-transform: uppercase;
+    }
+
+    &__condition {
+        color: $color-green;
+    }
+
+    &__text {
+        font-size: 1.5em;
+        margin: 0;
+    }
+}
+
+.task-actions {
+    padding: 1rem;
+
+    &__label {
+        margin-top: 0;
+        text-transform: uppercase;
+    }
+
+    &__buttons {
+        display: flex;
+    }
+
+    &__button {
+        @extend %button;
+        flex: 1 1 auto;
+        font-family: 'Source Code Pro', sans-serif;
+        font-size: 1.5em;
+        padding: 1rem;
+        text-align: center;
+        text-decoration: none;
+
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
+    }
+}
