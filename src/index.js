@@ -68,7 +68,7 @@ const tick = () => {
 
 	// Percentage
 	const LIQUID_HYDROGEN = previousPhase.LIQUID_HYDROGEN + percentageInPhase * (currentPhase.LIQUID_HYDROGEN - previousPhase.LIQUID_HYDROGEN);
-	const LIQUID_OXYGEN = previousPhase.LIQUID_OXYGEN + percentageInPhase * (currentPhase.LIQUID_OXYGEN - previousPhase.LIQUID);
+	const LIQUID_OXYGEN = previousPhase.LIQUID_OXYGEN + percentageInPhase * (currentPhase.LIQUID_OXYGEN - previousPhase.LIQUID_OXYGEN);
 	const HYDROXILAMMONIUM_NITRATE = previousPhase.HYDROXILAMMONIUM_NITRATE + percentageInPhase * (currentPhase.HYDROXILAMMONIUM_NITRATE - previousPhase.HYDROXILAMMONIUM_NITRATE);
 
 	ReactDOM.render(
