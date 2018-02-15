@@ -13,15 +13,15 @@ export default function PercentageValue(props) {
 	} else {
 		percentageClassName = '';
 	}
-	return <div className={`PercentageValue ${label}`}>
-		<div className="PercentageValue__label">
+	return <div className={`data data-percentage ${label}`}>
+		<div className="data__label">
 			{label}
 		</div>
-		<div className="PercentageValue__value">
+		<div className="data__value">
 			{valueToDisplay}%
 		</div>
-		<div className="PercentageValue__bar__container">
-			<div className={`PercentageValue__bar ${percentageClassName}`} style={{ width: `${value * 100}%` }}/>
+		<div className="data__bar-chart">
+			<div className={`data__bar ${percentageClassName}`} style={{ width: `${value * 100}%` }}/>
 		</div>
 	</div>
 }

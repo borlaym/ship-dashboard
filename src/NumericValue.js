@@ -8,11 +8,11 @@ export default function NumericalValue(props) {
 	} else {
 		valueToDisplay = Number.parseFloat(value).toPrecision(precision || 1);
 	}
-	return <div className={`NumericValue ${label}`}>
-			<div className="NumericValue__label">
+	return <div className={`data ${label}`}>
+			<div className="data__label">
 				{label}
 			</div>
-			<div className="NumericValue__value">
+			<div className="data__value">
 				{valueToDisplay} {metric}
 			</div>
 		</div>
