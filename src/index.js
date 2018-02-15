@@ -48,22 +48,28 @@ const tick = () => {
 	const previousPhase = scenario[phaseIndex - 1];
 	const phaseDuration = currentPhase.timestamp - previousPhase.timestamp;
 	const timeInCurrentDuration = t - previousPhase.timestamp;
+	const percentageInPhase = timeInCurrentDuration / phaseDuration;
 
+	// Boolean
 	const LDG_GEAR = currentPhase.LDG_GEAR;
 	const BRAKES = currentPhase.BRAKES;
 	const SOLAR = currentPhase.SOLAR;
 	const ANTENNAS = currentPhase.ANTENNAS;
-	const PERIAPSIS = currentPhase.PERIAPSIS;
-	const APOAPSIS = currentPhase.APOAPSIS;
-	const INCLINATION = currentPhase.INCLINATION;
-	const ECCENTRICITY = currentPhase.ECCENTRICITY;
-	const ALT = currentPhase.ALT;
-	const SPD = currentPhase.SPD;
-	const LIQUID_HYDROGEN = currentPhase.LIQUID_HYDROGEN;
-	const LIQUID_OXYGEN = currentPhase.LIQUID;
-	const HYDROXILAMMONIUM_NITRATE = currentPhase.HYDROXILAMMONIUM_NITRATE;
-	const DELTAV = currentPhase.DELTAV;
-	const TWR = currentPhase.TWR;
+
+	// Numeric
+	const PERIAPSIS = previousPhase.PERIAPSIS + percentageInPhase * (currentPhase.PERIAPSIS - previousPhase.PERIAPSIS);
+	const APOAPSIS = previousPhase.APOAPSIS + percentageInPhase * (currentPhase.APOAPSIS - previousPhase.APOAPSIS);
+	const INCLINATION = previousPhase.INCLINATION + percentageInPhase * (currentPhase.INCLINATION - previousPhase.INCLINATION);
+	const ECCENTRICITY = previousPhase.ECCENTRICITY + percentageInPhase * (currentPhase.ECCENTRICITY - previousPhase.ECCENTRICITY);
+	const ALT = previousPhase.ALT + percentageInPhase * (currentPhase.ALT - previousPhase.ALT);
+	const SPD = previousPhase.SPD + percentageInPhase * (currentPhase.SPD - previousPhase.SPD);
+	const DELTAV = previousPhase.DELTAV + percentageInPhase * (currentPhase.DELTAV - previousPhase.DELTAV);
+	const TWR = previousPhase.TWR + percentageInPhase * (currentPhase.TWR - previousPhase.TWR);
+
+	// Percentage
+	const LIQUID_HYDROGEN = previousPhase.LIQUID_HYDROGEN + percentageInPhase * (currentPhase.LIQUID_HYDROGEN - previousPhase.LIQUID_HYDROGEN);
+	const LIQUID_OXYGEN = previousPhase.LIQUID_OXYGEN + percentageInPhase * (currentPhase.LIQUID_OXYGEN - previousPhase.LIQUID);
+	const HYDROXILAMMONIUM_NITRATE = previousPhase.HYDROXILAMMONIUM_NITRATE + percentageInPhase * (currentPhase.HYDROXILAMMONIUM_NITRATE - previousPhase.HYDROXILAMMONIUM_NITRATE);
 
 	ReactDOM.render(
 		<div class="bigscreen-layout">
@@ -95,25 +101,25 @@ const tick = () => {
 				<div class="data-group--twocol">
 					<div class="data data--twocol">
 						<h2 class="data__label">Periapsis</h2>
-						<p class="data__value data__value--green">{PERIAPSIS} m</p>
+						<p class="data__value data__value--green">{PERIAPSIS.toFixed(0)} m</p>
 					</div>
 					<div class="data data--twocol">
 						<h2 class="data__label">Apoapsis</h2>
-						<p class="data__value data__value--green">{APOAPSIS} m</p>
+						<p class="data__value data__value--green">{APOAPSIS.toFixed(0)} m</p>
 					</div>
 					<div class="data data--twocol">
 						<h2 class="data__label">Inclination</h2>
-						<p class="data__value data__value--green">{INCLINATION} deg</p>
+						<p class="data__value data__value--green">{INCLINATION.toFixed(1)} deg</p>
 					</div>
 					<div class="data data--twocol">
 						<h2 class="data__label">Eccentricity</h2>
-						<p class="data__value data__value--green">{ECCENTRICITY}</p>
+						<p class="data__value data__value--green">{ECCENTRICITY.toFixed(2)}</p>
 					</div>
 				</div>
 				<div class="data-group">
 					<div class="data data--large">
 						<h2 class="data__label">ALT</h2>
-						<p class="data__value">{ALT} m</p>
+						<p class="data__value">{ALT.toFixed(0)} m</p>
 					</div>
 				</div>
 			</div>
@@ -121,31 +127,31 @@ const tick = () => {
 				<div class="data-group">
 					<div class="data">
 						<h2 class="data__label">Liquid Hydrogen</h2>
-						<p class="data__value data__value--green">{LIQUID_HYDROGEN}%</p>
+						<p class="data__value data__value--green">{(LIQUID_HYDROGEN * 100).toFixed(2)}%</p>
 					</div>
 					<div class="data">
 						<h2 class="data__label">Liquid Oxygen</h2>
-						<p class="data__value data__value--green">{LIQUID_OXYGEN}%</p>
+						<p class="data__value data__value--green">{(LIQUID_OXYGEN * 100).toFixed(2)}%</p>
 					</div>
 					<div class="data">
 						<h2 class="data__label">Hydroxilammonium Nitrate</h2>
-						<p class="data__value data__value--green">{HYDROXILAMMONIUM_NITRATE}%</p>
+						<p class="data__value data__value--green">{(HYDROXILAMMONIUM_NITRATE * 100).toFixed(2)}%</p>
 					</div>
 				</div>
 				<div class="data-group">
 					<div class="data">
 						<h2 class="data__label">&Delta;V</h2>
-						<p class="data__value data__value--green">{DELTAV} m/s</p>
+						<p class="data__value data__value--green">{DELTAV.toFixed(0)} m/s</p>
 					</div>
 					<div class="data">
 						<h2 class="data__label">TWR</h2>
-						<p class="data__value data__value--green">{TWR}</p>
+						<p class="data__value data__value--green">{TWR.toFixed(1)}</p>
 					</div>
 				</div>
 				<div class="data-group">
 					<div class="data data--large">
 						<h2 class="data__label">SPD</h2>
-						<p class="data__value">{SPD} Mach</p>
+						<p class="data__value">{SPD.toFixed(2)} Mach</p>
 					</div>
 				</div>
 			</div>
