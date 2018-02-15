@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import NumericValue from './NumericValue';
-import TextValue from './TextValue';
 import PercentageValue from './PercentageValue';
 import registerServiceWorker from './registerServiceWorker';
 import scenario from './scenario.json';
@@ -132,18 +130,9 @@ const tick = () => {
 			</div>
 			<div className="bigscreen-layout__column">
 				<div className="data-group">
-					<div className="data">
-						<h2 className="data__label">Liquid Hydrogen</h2>
-						<p className="data__value data__value--green">{(LIQUID_HYDROGEN * 100).toFixed(2)}%</p>
-					</div>
-					<div className="data">
-						<h2 className="data__label">Liquid Oxygen</h2>
-						<p className="data__value data__value--green">{(LIQUID_OXYGEN * 100).toFixed(2)}%</p>
-					</div>
-					<div className="data">
-						<h2 className="data__label">Hydroxilammonium Nitrate</h2>
-						<p className="data__value data__value--green">{(HYDROXILAMMONIUM_NITRATE * 100).toFixed(2)}%</p>
-					</div>
+					<PercentageValue label="Liquid Hydrogen" value={LIQUID_HYDROGEN} />
+					<PercentageValue label="Liquid Oxygen" value={LIQUID_OXYGEN} />
+					<PercentageValue label="Hydroxilammonium Nitrate" value={HYDROXILAMMONIUM_NITRATE} />
 				</div>
 				<div className="data-group">
 					<div className="data">
