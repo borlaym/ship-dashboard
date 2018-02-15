@@ -1,92 +1,56 @@
 [
 	{
 		"timestamp": 0,
-		"values": [
-			{
-				"type": "numeric",
-				"label": "ALT",
-				"value": 0,
-				"metric": "M",
-				"precision": 0
-			},
-			{
-				"type": "numeric",
-				"label": "SPD",
-				"value": 0,
-				"metric": "MACH",
-				"precision": 2
-			},
-			{
-				"type": "text",
-				"label": "LND",
-				"value": "RET",
-				"on": false
-			},
-			{
-				"type": "percentage",
-				"label": "LH",
-				"value": 1
-			}
-		]
+		"LDG_GEAR": false,
+		"BRAKES": false,
+		"SOLAR": false,
+		"ANTENNAS": false,
+		"PERIAPSIS": 0,
+		"APOAPSIS": 97300,
+		"INCLINATION": 1.5,
+		"ECCENTRICITY": 0.37,
+		"ALT": 125038,
+		"SPD": 0.85,
+		"LIQUID_HYDROGEN": 0.6757,
+		"LIQUID_OXYGEN": 0.9998,
+		"HYDROXILAMMONIUM_NITRATE": 0.0135,
+		"DELTAV": 13792,
+		"TWR": 2.7
 	},
 	{
-		"timestamp": 3000,
-		"values": [
-			{
-				"type": "numeric",
-				"label": "ALT",
-				"value": 1000,
-				"metric": "M",
-				"precision": 0
-			},
-			{
-				"type": "numeric",
-				"label": "SPD",
-				"value": 1.5,
-				"metric": "MACH",
-				"precision": 2
-			},
-			{
-				"type": "text",
-				"label": "LND",
-				"value": "DEP",
-				"on": true
-			},
-			{
-				"type": "percentage",
-				"label": "LH",
-				"value": 0.2
-			}
-		]
+		"timestamp": 4000,
+		"LDG_GEAR": false,
+		"BRAKES": false,
+		"SOLAR": true,
+		"ANTENNAS": false,
+		"PERIAPSIS": 0,
+		"APOAPSIS": 97300,
+		"INCLINATION": 1.5,
+		"ECCENTRICITY": 0.37,
+		"ALT": 135038,
+		"SPD": 2.5,
+		"LIQUID_HYDROGEN": 0.6747,
+		"LIQUID_OXYGEN": 0.9998,
+		"HYDROXILAMMONIUM_NITRATE": 0.0135,
+		"DELTAV": 13792,
+		"TWR": 2.7
 	},
 	{
 		"timestamp": 6000,
-		"values": [
-			{
-				"type": "numeric",
-				"label": "ALT",
-				"value": 0,
-				"metric": "M",
-				"precision": 0
-			},
-			{
-				"type": "numeric",
-				"label": "SPD",
-				"value": 0.5,
-				"metric": "MACH",
-				"precision": 2
-			},
-			{
-				"type": "text",
-				"label": "LND",
-				"value": "DEP",
-				"on": true
-			},
-			{
-				"type": "percentage",
-				"label": "LH",
-				"value": 0.4
-			}
-		]
+		"LDG_GEAR": false,
+		"BRAKES": false,
+		"SOLAR": true,
+		"ANTENNAS": true,
+		"PERIAPSIS": 0,
+		"APOAPSIS": 97300,
+		"INCLINATION": 4,
+		"ECCENTRICITY": 0.37,
+		"ALT": 145038,
+		"SPD": 3,
+		"LIQUID_HYDROGEN": 0.6747,
+		"LIQUID_OXYGEN": 0.9998,
+		"HYDROXILAMMONIUM_NITRATE": 0.0135,
+		"DELTAV": 13792,
+		"TWR": 2.7
 	}
 ]

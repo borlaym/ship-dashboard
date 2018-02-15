@@ -49,28 +49,106 @@ const tick = () => {
 	const phaseDuration = currentPhase.timestamp - previousPhase.timestamp;
 	const timeInCurrentDuration = t - previousPhase.timestamp;
 
-	const values = currentPhase.values.map(({ label, value, type, on, metric, precision }, index) => {
-		switch(type) {
-			case 'numeric': {
-				const previousPhaseValue = previousPhase.values[index].value;
-				const newValue = previousPhaseValue + (timeInCurrentDuration / phaseDuration) * (value - previousPhaseValue);
-				return <NumericValue key={label} label={label} value={newValue} metric={metric} precision={precision} />
-			}
-			case 'text': {
-				return <TextValue key={label} label={label} value={previousPhase.values[index].value} on={on} />
-			}
-			case 'percentage': {
-				const previousPhaseValue = previousPhase.values[index].value;
-				const newValue = previousPhaseValue + (timeInCurrentDuration / phaseDuration) * (value - previousPhaseValue);
-				return <PercentageValue key={label} label={label} value={newValue} />
-			}
-		}
-		
-	});
+	const LDG_GEAR = currentPhase.LDG_GEAR;
+	const BRAKES = currentPhase.BRAKES;
+	const SOLAR = currentPhase.SOLAR;
+	const ANTENNAS = currentPhase.ANTENNAS;
+	const PERIAPSIS = currentPhase.PERIAPSIS;
+	const APOAPSIS = currentPhase.APOAPSIS;
+	const INCLINATION = currentPhase.INCLINATION;
+	const ECCENTRICITY = currentPhase.ECCENTRICITY;
+	const ALT = currentPhase.ALT;
+	const SPD = currentPhase.SPD;
+	const LIQUID_HYDROGEN = currentPhase.LIQUID_HYDROGEN;
+	const LIQUID_OXYGEN = currentPhase.LIQUID;
+	const HYDROXILAMMONIUM_NITRATE = currentPhase.HYDROXILAMMONIUM_NITRATE;
+	const DELTAV = currentPhase.DELTAV;
+	const TWR = currentPhase.TWR;
 
 	ReactDOM.render(
-		<div className="app">
-			{values}
+		<div class="bigscreen-layout">
+			<div class="bigscreen-layout__column">
+				<div class="data-group">
+					<div class="data">
+						<h2 class="data__label">Call sign</h2>
+						<p class="data__value">Alacrity</p>
+					</div>
+				</div>
+				<div class="data-group data-group--twocol">
+					<div class="data data--twocol">
+						<h2 class="data__label">LDG gear</h2>
+						<p class="data__value data__value--green">{LDG_GEAR ? 'DEP' : 'RET'}</p>
+					</div>
+					<div class="data data--twocol">
+						<h2 class="data__label">Brakes</h2>
+						<p class="data__value data__value--green">{BRAKES ? 'DEP' : 'RET'}</p>
+					</div>
+					<div class="data data--twocol">
+						<h2 class="data__label">Solar</h2>
+						<p class="data__value data__value--green">{SOLAR ? 'DEP' : 'RET'}</p>
+					</div>
+					<div class="data data--twocol">
+						<h2 class="data__label">Antennas</h2>
+						<p class="data__value data__value--green">{ANTENNAS ? 'DEP' : 'RET'}</p>
+					</div>
+				</div>
+				<div class="data-group--twocol">
+					<div class="data data--twocol">
+						<h2 class="data__label">Periapsis</h2>
+						<p class="data__value data__value--green">{PERIAPSIS} m</p>
+					</div>
+					<div class="data data--twocol">
+						<h2 class="data__label">Apoapsis</h2>
+						<p class="data__value data__value--green">{APOAPSIS} m</p>
+					</div>
+					<div class="data data--twocol">
+						<h2 class="data__label">Inclination</h2>
+						<p class="data__value data__value--green">{INCLINATION} deg</p>
+					</div>
+					<div class="data data--twocol">
+						<h2 class="data__label">Eccentricity</h2>
+						<p class="data__value data__value--green">{ECCENTRICITY}</p>
+					</div>
+				</div>
+				<div class="data-group">
+					<div class="data data--large">
+						<h2 class="data__label">ALT</h2>
+						<p class="data__value">{ALT} m</p>
+					</div>
+				</div>
+			</div>
+			<div class="bigscreen-layout__column">
+				<div class="data-group">
+					<div class="data">
+						<h2 class="data__label">Liquid Hydrogen</h2>
+						<p class="data__value data__value--green">{LIQUID_HYDROGEN}%</p>
+					</div>
+					<div class="data">
+						<h2 class="data__label">Liquid Oxygen</h2>
+						<p class="data__value data__value--green">{LIQUID_OXYGEN}%</p>
+					</div>
+					<div class="data">
+						<h2 class="data__label">Hydroxilammonium Nitrate</h2>
+						<p class="data__value data__value--green">{HYDROXILAMMONIUM_NITRATE}%</p>
+					</div>
+				</div>
+				<div class="data-group">
+					<div class="data">
+						<h2 class="data__label">&Delta;V</h2>
+						<p class="data__value data__value--green">{DELTAV} m/s</p>
+					</div>
+					<div class="data">
+						<h2 class="data__label">TWR</h2>
+						<p class="data__value data__value--green">{TWR}</p>
+					</div>
+				</div>
+				<div class="data-group">
+					<div class="data data--large">
+						<h2 class="data__label">SPD</h2>
+						<p class="data__value">{SPD} Mach</p>
+					</div>
+				</div>
+			</div>
 			<button onClick={changePause}>{pause ? 'Play' : 'Pause'}</button>
 		</div>
 	, document.getElementById('root'));
