@@ -22,6 +22,13 @@ const changePause = () => {
 	}
 }
 
+const insertSpace = (string) => {
+	if (string.length < 4) {
+		return string;
+	}
+	return string.slice(0, -3) + ' ' + string.slice(-3);
+}
+
 const tick = () => {
 	if (pause) {
 		ReactDOM.render(
@@ -72,86 +79,86 @@ const tick = () => {
 	const HYDROXILAMMONIUM_NITRATE = previousPhase.HYDROXILAMMONIUM_NITRATE + percentageInPhase * (currentPhase.HYDROXILAMMONIUM_NITRATE - previousPhase.HYDROXILAMMONIUM_NITRATE);
 
 	ReactDOM.render(
-		<div class="bigscreen-layout">
-			<div class="bigscreen-layout__column">
-				<div class="data-group">
-					<div class="data">
-						<h2 class="data__label">Call sign</h2>
-						<p class="data__value">Alacrity</p>
+		<div className="bigscreen-layout">
+			<div className="bigscreen-layout__column">
+				<div className="data-group">
+					<div className="data">
+						<h2 className="data__label">Call sign</h2>
+						<p className="data__value">Alacrity</p>
 					</div>
 				</div>
-				<div class="data-group data-group--twocol">
-					<div class="data data--twocol">
-						<h2 class="data__label">LDG gear</h2>
-						<p class="data__value data__value--green">{LDG_GEAR ? 'DEP' : 'RET'}</p>
+				<div className="data-group data-group--twocol">
+					<div className="data data--twocol">
+						<h2 className="data__label">LDG gear</h2>
+						<p className="data__value data__value--green">{LDG_GEAR ? 'DEP' : 'RET'}</p>
 					</div>
-					<div class="data data--twocol">
-						<h2 class="data__label">Brakes</h2>
-						<p class="data__value data__value--green">{BRAKES ? 'DEP' : 'RET'}</p>
+					<div className="data data--twocol">
+						<h2 className="data__label">Brakes</h2>
+						<p className="data__value data__value--green">{BRAKES ? 'DEP' : 'RET'}</p>
 					</div>
-					<div class="data data--twocol">
-						<h2 class="data__label">Solar</h2>
-						<p class="data__value data__value--green">{SOLAR ? 'DEP' : 'RET'}</p>
+					<div className="data data--twocol">
+						<h2 className="data__label">Solar</h2>
+						<p className="data__value data__value--green">{SOLAR ? 'DEP' : 'RET'}</p>
 					</div>
-					<div class="data data--twocol">
-						<h2 class="data__label">Antennas</h2>
-						<p class="data__value data__value--green">{ANTENNAS ? 'DEP' : 'RET'}</p>
-					</div>
-				</div>
-				<div class="data-group--twocol">
-					<div class="data data--twocol">
-						<h2 class="data__label">Periapsis</h2>
-						<p class="data__value data__value--green">{PERIAPSIS.toFixed(0)} m</p>
-					</div>
-					<div class="data data--twocol">
-						<h2 class="data__label">Apoapsis</h2>
-						<p class="data__value data__value--green">{APOAPSIS.toFixed(0)} m</p>
-					</div>
-					<div class="data data--twocol">
-						<h2 class="data__label">Inclination</h2>
-						<p class="data__value data__value--green">{INCLINATION.toFixed(1)} deg</p>
-					</div>
-					<div class="data data--twocol">
-						<h2 class="data__label">Eccentricity</h2>
-						<p class="data__value data__value--green">{ECCENTRICITY.toFixed(2)}</p>
+					<div className="data data--twocol">
+						<h2 className="data__label">Antennas</h2>
+						<p className="data__value data__value--green">{ANTENNAS ? 'DEP' : 'RET'}</p>
 					</div>
 				</div>
-				<div class="data-group">
-					<div class="data data--large">
-						<h2 class="data__label">ALT</h2>
-						<p class="data__value">{ALT.toFixed(0)} m</p>
+				<div className="data-group--twocol">
+					<div className="data data--twocol">
+						<h2 className="data__label">Periapsis</h2>
+						<p className="data__value data__value--green">{insertSpace(PERIAPSIS.toFixed(0))} m</p>
+					</div>
+					<div className="data data--twocol">
+						<h2 className="data__label">Apoapsis</h2>
+						<p className="data__value data__value--green">{insertSpace(APOAPSIS.toFixed(0))} m</p>
+					</div>
+					<div className="data data--twocol">
+						<h2 className="data__label">Inclination</h2>
+						<p className="data__value data__value--green">{INCLINATION.toFixed(1)} deg</p>
+					</div>
+					<div className="data data--twocol">
+						<h2 className="data__label">Eccentricity</h2>
+						<p className="data__value data__value--green">{ECCENTRICITY.toFixed(2)}</p>
+					</div>
+				</div>
+				<div className="data-group">
+					<div className="data data--large">
+						<h2 className="data__label">ALT</h2>
+						<p className="data__value">{insertSpace(ALT.toFixed(0))} m</p>
 					</div>
 				</div>
 			</div>
-			<div class="bigscreen-layout__column">
-				<div class="data-group">
-					<div class="data">
-						<h2 class="data__label">Liquid Hydrogen</h2>
-						<p class="data__value data__value--green">{(LIQUID_HYDROGEN * 100).toFixed(2)}%</p>
+			<div className="bigscreen-layout__column">
+				<div className="data-group">
+					<div className="data">
+						<h2 className="data__label">Liquid Hydrogen</h2>
+						<p className="data__value data__value--green">{(LIQUID_HYDROGEN * 100).toFixed(2)}%</p>
 					</div>
-					<div class="data">
-						<h2 class="data__label">Liquid Oxygen</h2>
-						<p class="data__value data__value--green">{(LIQUID_OXYGEN * 100).toFixed(2)}%</p>
+					<div className="data">
+						<h2 className="data__label">Liquid Oxygen</h2>
+						<p className="data__value data__value--green">{(LIQUID_OXYGEN * 100).toFixed(2)}%</p>
 					</div>
-					<div class="data">
-						<h2 class="data__label">Hydroxilammonium Nitrate</h2>
-						<p class="data__value data__value--green">{(HYDROXILAMMONIUM_NITRATE * 100).toFixed(2)}%</p>
-					</div>
-				</div>
-				<div class="data-group">
-					<div class="data">
-						<h2 class="data__label">&Delta;V</h2>
-						<p class="data__value data__value--green">{DELTAV.toFixed(0)} m/s</p>
-					</div>
-					<div class="data">
-						<h2 class="data__label">TWR</h2>
-						<p class="data__value data__value--green">{TWR.toFixed(1)}</p>
+					<div className="data">
+						<h2 className="data__label">Hydroxilammonium Nitrate</h2>
+						<p className="data__value data__value--green">{(HYDROXILAMMONIUM_NITRATE * 100).toFixed(2)}%</p>
 					</div>
 				</div>
-				<div class="data-group">
-					<div class="data data--large">
-						<h2 class="data__label">SPD</h2>
-						<p class="data__value">{SPD.toFixed(2)} Mach</p>
+				<div className="data-group">
+					<div className="data">
+						<h2 className="data__label">&Delta;V</h2>
+						<p className="data__value data__value--green">{insertSpace(DELTAV.toFixed(0))} m/s</p>
+					</div>
+					<div className="data">
+						<h2 className="data__label">TWR</h2>
+						<p className="data__value data__value--green">{TWR.toFixed(1)}</p>
+					</div>
+				</div>
+				<div className="data-group">
+					<div className="data data--large">
+						<h2 className="data__label">SPD</h2>
+						<p className="data__value">{SPD.toFixed(2)} Mach</p>
 					</div>
 				</div>
 			</div>
