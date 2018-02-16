@@ -31,7 +31,7 @@ const tick = () => {
 	if (pause) {
 		ReactDOM.render(
 			<div className="app">
-				<button onClick={changePause}>Play</button>
+				<button className="button-play-pause" onClick={changePause}>Play</button>
 			</div>
 			, document.getElementById('root'));
 		return;
@@ -78,52 +78,53 @@ const tick = () => {
 
 	ReactDOM.render(
 		<div className="bigscreen-layout">
+			<button className="button-play-pause" onClick={changePause}>{pause ? 'Play' : 'Pause'}</button>
 			<div className="bigscreen-layout__column">
 				<div className="data-group">
 					<div className="data">
 						<h2 className="data__label">Call sign</h2>
-						<p className="data__value">Alacrity</p>
+						<p className="data__value">ALACRITY</p>
 					</div>
 				</div>
 				<div className="data-group data-group--twocol">
 					<div className="data data--twocol">
 						<h2 className="data__label">LDG gear</h2>
-						<p className="data__value data__value--green">{LDG_GEAR ? 'DEP' : 'RET'}</p>
+						<p className={'data__value' + (LDG_GEAR ? ' data__value--red' : ' data__value--green')}>{LDG_GEAR ? 'DEP' : 'RET'}</p>
 					</div>
 					<div className="data data--twocol">
 						<h2 className="data__label">Brakes</h2>
-						<p className="data__value data__value--green">{BRAKES ? 'DEP' : 'RET'}</p>
+						<p className={'data__value' + (BRAKES ? ' data__value--red' : ' data__value--green')}>{BRAKES ? 'DEP' : 'RET'}</p>
 					</div>
 					<div className="data data--twocol">
-						<h2 className="data__label">Solar</h2>
-						<p className="data__value data__value--green">{SOLAR ? 'DEP' : 'RET'}</p>
+						<h2 className="data__label">Solar panels</h2>
+						<p className={'data__value' + (SOLAR ? ' data__value--red' : ' data__value--green')}>{SOLAR ? 'DEP' : 'RET'}</p>
 					</div>
 					<div className="data data--twocol">
 						<h2 className="data__label">Antennas</h2>
-						<p className="data__value data__value--green">{ANTENNAS ? 'DEP' : 'RET'}</p>
+						<p className={'data__value' + (ANTENNAS ? ' data__value--red' : ' data__value--green')}>{ANTENNAS ? 'DEP' : 'RET'}</p>
 					</div>
 				</div>
 				<div className="data-group--twocol">
 					<div className="data data--twocol">
 						<h2 className="data__label">Periapsis</h2>
-						<p className="data__value data__value--green">{insertSpace(PERIAPSIS.toFixed(0))} m</p>
+						<p className="data__value">{insertSpace(PERIAPSIS.toFixed(0))} m</p>
 					</div>
 					<div className="data data--twocol">
 						<h2 className="data__label">Apoapsis</h2>
-						<p className="data__value data__value--green">{insertSpace(APOAPSIS.toFixed(0))} m</p>
+						<p className="data__value">{insertSpace(APOAPSIS.toFixed(0))} m</p>
 					</div>
 					<div className="data data--twocol">
 						<h2 className="data__label">Inclination</h2>
-						<p className="data__value data__value--green">{INCLINATION.toFixed(1)} deg</p>
+						<p className="data__value">{INCLINATION.toFixed(1)} deg</p>
 					</div>
 					<div className="data data--twocol">
 						<h2 className="data__label">Eccentricity</h2>
-						<p className="data__value data__value--green">{ECCENTRICITY.toFixed(2)}</p>
+						<p className="data__value">{ECCENTRICITY.toFixed(2)}</p>
 					</div>
 				</div>
 				<div className="data-group">
 					<div className="data data--large">
-						<h2 className="data__label">ALT</h2>
+						<h2 className="data__label">Altitude</h2>
 						<p className="data__value">{insertSpace(ALT.toFixed(0))} m</p>
 					</div>
 				</div>
@@ -137,21 +138,20 @@ const tick = () => {
 				<div className="data-group">
 					<div className="data">
 						<h2 className="data__label">&Delta;V</h2>
-						<p className="data__value data__value--green">{insertSpace(DELTAV.toFixed(0))} m/s</p>
+						<p className="data__value">{insertSpace(DELTAV.toFixed(0))} m/s</p>
 					</div>
 					<div className="data">
 						<h2 className="data__label">TWR</h2>
-						<p className="data__value data__value--green">{TWR.toFixed(1)}</p>
+						<p className="data__value">{TWR.toFixed(1)}</p>
 					</div>
 				</div>
 				<div className="data-group">
 					<div className="data data--large">
-						<h2 className="data__label">SPD</h2>
+						<h2 className="data__label">Speed</h2>
 						<p className="data__value">{SPD.toFixed(2)} Mach</p>
 					</div>
 				</div>
 			</div>
-			<button onClick={changePause}>{pause ? 'Play' : 'Pause'}</button>
 		</div>
 	, document.getElementById('root'));
 	window.setTimeout(tick, config.refreshInterval);
