@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:800|Source+Code+Pro:700');
+
 $color-green:   #5cd03d;
 $color-red:     #d84e4e;
 $color-yellow:  #eab000;
@@ -17,6 +19,9 @@ html {
 
 body {
     background-color: #000;
+    background-image: url('../images/big-screen-bgr.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     color: #fff;
     font-family: 'Raleway', sans-serif;
     font-size: 16px;
@@ -28,9 +33,29 @@ body {
 %button {
     color: #000;
     background-color: $color-yellow;
+    border: none;
+    flex: 1 1 auto;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5em;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:not(:last-child) {
+        margin-right: 1rem;
+    }
 }
 
 // BIG SCREEN
+
+.button-play-pause {
+    @extend %button;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0.5rem;
+}
 
 .bigscreen-layout {
     display: flex;
@@ -42,7 +67,7 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        flex: 0 1 35%;
+        flex: 0 1 30%;
         margin: 2rem;
 
         &:last-child {
@@ -61,13 +86,15 @@ body {
 
 .data {
     font-size: 1.5rem;
+    margin: 0 0 2rem;
 
     &--large {
         font-size: 3rem;
+        margin-bottom: 0;
+    }
 
-        & .data__value {
-            margin-bottom: 0;
-        }
+    &--twocol {
+        flex: 1 1 50%;
     }
 
     &__label {
@@ -81,12 +108,83 @@ body {
     &__value {
         font-family: 'Source Code Pro', sans-serif;
         font-size: 1.5em;
-        margin: 0 0 2rem;
+        margin: 0;
+
+        &--green {
+            color: $color-green;
+        }
+
+        &--red {
+            color: $color-red;
+        }
     }
 
-    &--twocol {
-        flex: 1 1 50%;
+    &__bar-chart {
+        background-color: rgba(0,0,0,0.5);
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 0.4em;
+        position: relative;
+
+        &--value-75 {
+            .data__triangle--25,
+            .data__triangle--50,
+            .data__triangle--75 {
+                border-bottom-color: white;
+            }
+        }
+
+        &--value-50 {
+            .data__triangle--25,
+            .data__triangle--50 {
+                border-bottom-color: white;
+            }
+        }
+
+        &--value-25 {
+            .data__triangle--25 {
+                border-bottom-color: white;
+            }
+        }
+
+        &--red {
+            .data__bar {
+                background-color: $color-red;
+            }
+        }
     }
+
+    &__bar {
+        background-color: #fff;
+        flex: 0 0 auto;
+        float: right;
+        height: 4px;
+    }
+
+    &__triangle {
+        border-bottom: 7px solid rgba(0,0,0,0.5);
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 10px;
+        right: 0;
+        transform: translatex(7px);
+
+        &--25 {
+            right: 25%;
+        }
+
+        &--50 {
+            right: 50%;
+        }
+
+        &--75 {
+            right: 75%;
+        }
+    }
+
 }
 
 // TASKS SCREEN
@@ -150,15 +248,6 @@ body {
 
     &__button {
         @extend %button;
-        flex: 1 1 auto;
         font-family: 'Source Code Pro', sans-serif;
-        font-size: 1.5em;
-        padding: 1rem;
-        text-align: center;
-        text-decoration: none;
-
-        &:not(:last-child) {
-            margin-right: 1rem;
-        }
     }
 }

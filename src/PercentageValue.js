@@ -4,23 +4,23 @@ export default function PercentageValue(props) {
 	const { label, value } = props;
 	let percentageClassName;
 	if (value > 0.75) {
-		percentageClassName = 'value75';
+		percentageClassName = 'data__bar-chart--value-75';
 	} else if (value > 0.5) {
-		percentageClassName = 'value50';
+		percentageClassName = 'data__bar-chart--value-50';
 	} else if (value > 0.25) {
-		percentageClassName = 'value25';
+		percentageClassName = 'data__bar-chart--value-25';
 	} else {
-		percentageClassName = '';
+		percentageClassName = 'data__bar-chart--red';
 	}
 	return (
 		<div className="data">
 			<h2 className="data__label">{label}</h2>
-			<p className="data__value data__value--green">{(value * 100).toFixed(2)} m</p>
-			<div className="data__bar-chart">
-				<div className={`data__bar ${percentageClassName}`} style={{ width: `${value * 100}%` }} />
-				<div className="triangle25" />
-				<div className="triangle50" />
-				<div className="triangle75" />
+			<p className={'data__value' + (value < 0.25 ? ' data__value--red' : '')}>{(value * 100).toFixed(2)}%</p>
+			<div className={`data__bar-chart ${percentageClassName}`}>
+				<div className="data__bar" style={{ width: `${value * 100}%` }} />
+				<div className="data__triangle data__triangle--25" />
+				<div className="data__triangle data__triangle--50" />
+				<div className="data__triangle data__triangle--75" />
 			</div>
 		</div>
 	);
