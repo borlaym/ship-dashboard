@@ -10,7 +10,8 @@ import './App.css';
 let t = 0;
 let lastModified = Date.now();
 let phaseIndex = 1;
-let pause = true;
+let started = false;
+let pause = false;
 
 const changePause = () => {
 	pause = !pause;
@@ -18,6 +19,12 @@ const changePause = () => {
 		lastModified = Date.now();
 		tick();
 	}
+}
+
+const start = () => {
+	started = true;
+	lastModified = Date.now();
+	tick();
 }
 
 const insertSpace = (string) => {
@@ -28,10 +35,10 @@ const insertSpace = (string) => {
 }
 
 const tick = () => {
-	if (pause) {
+	if (!started) {
 		ReactDOM.render(
 			<div className="app">
-				<button className="button-play-pause" onClick={changePause}>Play</button>
+				<button className="button-play-pause" onClick={start}>Play</button>
 			</div>
 			, document.getElementById('root'));
 		return;
@@ -154,8 +161,10 @@ const tick = () => {
 			</div>
 		</div>
 	, document.getElementById('root'));
-	window.setTimeout(tick, config.refreshInterval);
-	lastModified = now;
+	if (!pause) {
+		window.setTimeout(tick, config.refreshInterval);
+		lastModified = now;
+	}
 };
 
 
