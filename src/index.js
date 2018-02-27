@@ -63,6 +63,8 @@ const tick = () => {
 	const percentageInPhase = timeInCurrentDuration / phaseDuration;
 
 	// Boolean
+	const SAS = currentPhase.SAS;
+	const RCS = currentPhase.RCS;
 	const LDG_GEAR = currentPhase.LDG_GEAR;
 	const BRAKES = currentPhase.BRAKES;
 	const SOLAR = currentPhase.SOLAR;
@@ -94,6 +96,14 @@ const tick = () => {
 					</div>
 				</div>
 				<div className="data-group data-group--twocol">
+					<div className="data data--twocol">
+						<h2 className="data__label">SAS</h2>
+						<p className={'data__value' + (SAS ? ' data__value--green' : ' data__value--red')}>{SAS ? 'ON' : 'OFF'}</p>
+					</div>
+					<div className="data data--twocol">
+						<h2 className="data__label">RCS</h2>
+						<p className={'data__value' + (RCS ? ' data__value--green' : ' data__value--red')}>{RCS ? 'ON' : 'OFF'}</p>
+					</div>
 					<div className="data data--twocol">
 						<h2 className="data__label">LDG gear</h2>
 						<p className={'data__value' + (LDG_GEAR ? ' data__value--red' : ' data__value--green')}>{LDG_GEAR ? 'DEP' : 'RET'}</p>
