@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import PercentageValue from './PercentageValue';
 import registerServiceWorker from './registerServiceWorker';
 import scenario from './scenario.json';
 import config from './config.json';
-import './App.css';
 
 let t = 0;
 let lastModified = Date.now();
