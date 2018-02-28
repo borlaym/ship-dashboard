@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,iCACC,YACA,WAAa,CAGd,sBACC,YACA,eAAkB","file":"static/css/main.f4779a5e.css","sourcesContent":[".PercentageValue__bar__container {\n\theight: 15px;\n\twidth: 400px;\n}\n\n.PercentageValue__bar {\n\theight: 15px;\n\tbackground: black;\n}\n\n\n\n// WEBPACK FOOTER //\n// ./src/index.css"],"sourceRoot":""}
