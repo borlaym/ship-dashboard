@@ -77,7 +77,6 @@ const tick = () => {
 	const ECCENTRICITY = previousPhase.ECCENTRICITY + percentageInPhase * (currentPhase.ECCENTRICITY - previousPhase.ECCENTRICITY);
 	const ALT = previousPhase.ALT + percentageInPhase * (currentPhase.ALT - previousPhase.ALT);
 	const SPD = previousPhase.SPD + percentageInPhase * (currentPhase.SPD - previousPhase.SPD);
-	const DELTAV = previousPhase.DELTAV + percentageInPhase * (currentPhase.DELTAV - previousPhase.DELTAV);
 	const TWR = previousPhase.TWR + percentageInPhase * (currentPhase.TWR - previousPhase.TWR);
 
 	// Percentage
@@ -121,6 +120,25 @@ const tick = () => {
 						<p className={'data__value' + (ANTENNAS ? ' data__value--red' : ' data__value--green')}>{ANTENNAS ? 'DEP' : 'RET'}</p>
 					</div>
 				</div>
+				<div className="data-group">
+					<div className="data">
+						<h2 className="data__label">Thrust-to-weight ratio</h2>
+						<p className="data__value">{TWR.toFixed(1)}</p>
+					</div>
+				</div>
+				<div className="data-group">
+					<div className="data data--large">
+						<h2 className="data__label">Altitude</h2>
+						<p className="data__value">{insertSpace(ALT.toFixed(0))} m</p>
+					</div>
+				</div>
+			</div>
+			<div className="bigscreen-layout__column">
+				<div className="data-group">
+					<PercentageValue label="Liquid Hydrogen" value={LIQUID_HYDROGEN} />
+					<PercentageValue label="Liquid Oxygen" value={LIQUID_OXYGEN} />
+					<PercentageValue label="Hydroxilammonium Nitrate" value={HYDROXILAMMONIUM_NITRATE} />
+				</div>
 				<div className="data-group--twocol">
 					<div className="data data--twocol">
 						<h2 className="data__label">Periapsis</h2>
@@ -137,29 +155,6 @@ const tick = () => {
 					<div className="data data--twocol">
 						<h2 className="data__label">Eccentricity</h2>
 						<p className="data__value">{ECCENTRICITY.toFixed(2)}</p>
-					</div>
-				</div>
-				<div className="data-group">
-					<div className="data data--large">
-						<h2 className="data__label">Altitude</h2>
-						<p className="data__value">{insertSpace(ALT.toFixed(0))} m</p>
-					</div>
-				</div>
-			</div>
-			<div className="bigscreen-layout__column">
-				<div className="data-group">
-					<PercentageValue label="Liquid Hydrogen" value={LIQUID_HYDROGEN} />
-					<PercentageValue label="Liquid Oxygen" value={LIQUID_OXYGEN} />
-					<PercentageValue label="Hydroxilammonium Nitrate" value={HYDROXILAMMONIUM_NITRATE} />
-				</div>
-				<div className="data-group">
-					<div className="data">
-						<h2 className="data__label">&Delta;V</h2>
-						<p className="data__value">{insertSpace(DELTAV.toFixed(0))} m/s</p>
-					</div>
-					<div className="data">
-						<h2 className="data__label">TWR</h2>
-						<p className="data__value">{TWR.toFixed(1)}</p>
 					</div>
 				</div>
 				<div className="data-group">
