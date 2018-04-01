@@ -11,13 +11,13 @@
 		"APOAPSIS": 0,
 		"INCLINATION": 0,
 		"ECCENTRICITY": 0,
-		"ALT": 2,
+		"ALT": 49,
 		"SPD": 0,
 		"LIQUID_HYDROGEN": 0.9999,
 		"LIQUID_OXYGEN": 0.9998,
 		"HYDROXILAMMONIUM_NITRATE": 0.9998,
 		"DELTAV": 17289,
-		"TWR": 1.8
+		"TWR": 0.97
 	},
 	{
 		"timestamp": 10000,
@@ -31,12 +31,12 @@
 		"APOAPSIS": 0,
 		"INCLINATION": 0,
 		"ECCENTRICITY": 0,
-		"ALT": 2,
+		"ALT": 49,
 		"SPD": 0,
 		"LIQUID_HYDROGEN": 0.9999,
 		"LIQUID_OXYGEN": 0.9998,
 		"HYDROXILAMMONIUM_NITRATE": 0.9998,
-		"TWR": 1.8
+		"TWR": 0.97
 	},
 	{
 		"timestamp": 30000,
@@ -50,12 +50,12 @@
 		"APOAPSIS": 0,
 		"INCLINATION": 0,
 		"ECCENTRICITY": 0,
-		"ALT": 2,
+		"ALT": 49,
 		"SPD": 0.2,
 		"LIQUID_HYDROGEN": 0.9,
 		"LIQUID_OXYGEN": 0.9998,
 		"HYDROXILAMMONIUM_NITRATE": 0.9998,
-		"TWR": 1.8
+		"TWR": 0.97
 	},
 	{
 		"timestamp": 50000,
@@ -69,12 +69,12 @@
 		"APOAPSIS": 500,
 		"INCLINATION": 0,
 		"ECCENTRICITY": 0,
-		"ALT": 25,
+		"ALT": 58,
 		"SPD": 0.38,
 		"LIQUID_HYDROGEN": 0.8750,
 		"LIQUID_OXYGEN": 0.9998,
 		"HYDROXILAMMONIUM_NITRATE": 0.9998,
-		"TWR": 1.8
+		"TWR": 1.1
 	},
 	{
 		"timestamp": 70000,
@@ -93,7 +93,7 @@
 		"LIQUID_HYDROGEN": 0.850,
 		"LIQUID_OXYGEN": 0.9998,
 		"HYDROXILAMMONIUM_NITRATE": 0.9998,
-		"TWR": 1.8
+		"TWR": 1.5
 	},
 	{
 		"timestamp": 90000,
